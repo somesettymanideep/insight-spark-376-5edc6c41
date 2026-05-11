@@ -99,7 +99,7 @@ const navLinks = [
   { label: "Contact", href: "#contact", hasMenu: "contact" as const },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | "contact" | null;
+type MenuKey = "solutions" | "insights" | "about" | "contact" | "industries" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
