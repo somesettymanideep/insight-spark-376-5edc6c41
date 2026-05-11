@@ -3,11 +3,14 @@ import logo from "@/assets/logo.jpeg";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
+  { label: "Home", href: "#" },
+  { label: "Solutions", href: "#solutions" },
+  { label: "Products", href: "#products" },
+  { label: "Industries", href: "#industries" },
+  { label: "Client Work", href: "#cases" },
+  { label: "Insights", href: "#insights" },
   { label: "About", href: "#about" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "Case Studies", href: "#cases" },
-  { label: "Process", href: "#process" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -33,10 +36,10 @@ export default function Navbar() {
           <img src={logo} alt="NextGenLytics" className="h-14 md:h-16 rounded" />
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((l) => (
             <a
-              key={l.href}
+              key={l.label}
               href={l.href}
               className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200"
             >
@@ -45,18 +48,18 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href="#contact"
             className="px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/25 active:scale-[0.97] transition-all duration-200"
           >
-            Get a Demo
+            Book a Demo
           </a>
         </div>
 
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-foreground active:scale-95 transition-transform"
+          className="lg:hidden p-2 text-foreground active:scale-95 transition-transform"
           aria-label="Toggle menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -64,11 +67,11 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-card border-t border-border animate-fade-in">
+        <div className="lg:hidden bg-card border-t border-border animate-fade-in">
           <nav className="container py-4 flex flex-col gap-3">
             {navLinks.map((l) => (
               <a
-                key={l.href}
+                key={l.label}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="text-sm font-medium text-foreground/70 py-2"
@@ -80,7 +83,7 @@ export default function Navbar() {
               href="#contact"
               className="mt-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-primary-foreground text-center"
             >
-              Get a Demo
+              Book a Demo
             </a>
           </nav>
         </div>
