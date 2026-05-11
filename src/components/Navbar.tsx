@@ -77,6 +77,16 @@ const industriesMenu = [
   ],
 }));
 
+const productsMenu = [
+  { label: "BlueGecko Platform", icon: "★" },
+  { label: "Falcon Mapping", icon: "◈" },
+  { label: "Code Cheetah", icon: "⌨️" },
+  { label: "Owl Sight", icon: "◉" },
+  { label: "Orca Migrate", icon: "↔️" },
+  { label: "AI Agents", icon: "🤖" },
+  { label: "Business Metrics", icon: "📈" },
+];
+
 const contactMenu = [
   { label: "Book Consultation Form", icon: "📆" },
   { label: "Request Demo Form", icon: "▶️" },
@@ -91,7 +101,7 @@ const contactMenu = [
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
-  { label: "Products", href: "#products" },
+  { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries", hasMenu: "industries" as const },
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
@@ -99,7 +109,7 @@ const navLinks = [
   { label: "Contact", href: "#contact", hasMenu: "contact" as const },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | "contact" | "industries" | null;
+type MenuKey = "solutions" | "insights" | "about" | "contact" | "industries" | "products" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -239,6 +249,31 @@ export default function Navbar() {
                             ))}
                           </ul>
                         </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {openMenuKey === "products" && l.hasMenu === "products" && (
+                  <div
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    onMouseEnter={() => openMenu("products")}
+                    onMouseLeave={scheduleClose}
+                  >
+                    <div className="grid grid-cols-2 gap-2">
+                      {productsMenu.map((i) => (
+                        <a
+                          key={i.label}
+                          href="#products"
+                          onClick={closeNow}
+                          className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
+                        >
+                          <span className="text-2xl">{i.icon}</span>
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary flex-1">
+                            {i.label}
+                          </span>
+                          <ArrowRight size={14} className="text-accent opacity-70" />
+                        </a>
                       ))}
                     </div>
                   </div>
@@ -417,6 +452,27 @@ export default function Navbar() {
                           </ul>
                         </div>
                       ))}
+                    </div>
+                  )}
+                  {mobileMenuKey === "products" && l.hasMenu === "products" && (
+                    <div className="pl-3 border-l border-border/60 ml-1 mb-2">
+                      <ul>
+                        {productsMenu.map((i) => (
+                          <li key={i.label}>
+                            <a
+                              href="#products"
+                              onClick={() => {
+                                setOpen(false);
+                                setMobileMenuKey(null);
+                              }}
+                              className="flex items-center gap-2 py-2 text-sm text-foreground/80"
+                            >
+                              <span>{i.icon}</span>
+                              <span>{i.label}</span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
                   {mobileMenuKey === "insights" && l.hasMenu === "insights" && (
