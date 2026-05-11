@@ -46,6 +46,17 @@ const insightsMenu = [
   { label: "Research", icon: "🔬" },
 ];
 
+const aboutMenu = [
+  { label: "Company Overview", icon: "🏢" },
+  { label: "Leadership Team", icon: "👔" },
+  { label: "Founding Team", icon: "⭐" },
+  { label: "Our Journey", icon: "🗺️" },
+  { label: "Partnerships", icon: "🤝" },
+  { label: "Vision & Mission", icon: "🎯" },
+  { label: "Careers", icon: "💼" },
+  { label: "Global Presence", icon: "🌐" },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
@@ -53,11 +64,11 @@ const navLinks = [
   { label: "Industries", href: "#industries" },
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
-  { label: "About", href: "#about" },
+  { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Contact", href: "#contact" },
 ];
 
-type MenuKey = "solutions" | "insights" | null;
+type MenuKey = "solutions" | "insights" | "about" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
