@@ -46,6 +46,17 @@ const insightsMenu = [
   { label: "Research", icon: "🔬" },
 ];
 
+const aboutMenu = [
+  { label: "Company Overview", icon: "🏢" },
+  { label: "Leadership Team", icon: "👔" },
+  { label: "Founding Team", icon: "⭐" },
+  { label: "Our Journey", icon: "🗺️" },
+  { label: "Partnerships", icon: "🤝" },
+  { label: "Vision & Mission", icon: "🎯" },
+  { label: "Careers", icon: "💼" },
+  { label: "Global Presence", icon: "🌐" },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
