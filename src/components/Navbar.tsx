@@ -75,7 +75,7 @@ const navLinks = [
   { label: "Client Work", href: "#cases" },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "#/contact" },
 ];
 
 type MenuKey = "solutions" | "insights" | "about" | "products" | null;
@@ -271,7 +271,7 @@ export default function Navbar() {
 
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="#contact"
+            href="#/contact"
             className="px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/25 active:scale-[0.97] transition-all duration-200"
           >
             Book a Demo
@@ -406,7 +406,7 @@ export default function Navbar() {
               ),
             )}
             <a
-              href="#contact"
+              href="#/contact"
               onClick={() => setOpen(false)}
               className="mt-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-primary-foreground text-center"
             >
