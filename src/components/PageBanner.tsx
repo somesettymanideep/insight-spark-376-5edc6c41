@@ -40,16 +40,16 @@ export default function PageBanner({
         aria-hidden
       />
 
-      <div className="relative container py-20 md:py-28">
-        <div className={`max-w-3xl ${alignment} animate-reveal-up`}>
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 backdrop-blur text-primary-foreground text-xs font-semibold uppercase tracking-widest border border-accent/40">
+      <div className="relative container py-12 md:py-16">
+        <div className={`max-w-2xl ${alignment} animate-reveal-up`}>
+          <span className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-accent/20 backdrop-blur text-primary-foreground text-[10px] font-semibold uppercase tracking-widest border border-accent/40">
             {eyebrow}
           </span>
-          <h1 className="mt-5 text-4xl md:text-6xl font-bold text-primary-foreground font-heading text-balance leading-tight drop-shadow-sm">
+          <h1 className="mt-3 text-2xl md:text-4xl font-bold text-primary-foreground font-heading text-balance leading-tight drop-shadow-sm">
             {title}
           </h1>
           {description && (
-            <p className="mt-5 text-lg md:text-xl text-primary-foreground/85 leading-relaxed text-pretty">
+            <p className="mt-3 text-sm md:text-base text-primary-foreground/85 leading-relaxed text-pretty">
               {description}
             </p>
           )}
