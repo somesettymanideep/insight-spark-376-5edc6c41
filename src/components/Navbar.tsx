@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "@/assets/logo.jpeg";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight, Factory, Cog, FileText, Database, BarChart3, LifeBuoy } from "lucide-react";
 
 const solutionsMenu = [
   {
