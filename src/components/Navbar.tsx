@@ -47,14 +47,8 @@ const insightsMenu = [
 ];
 
 const aboutMenu = [
-  { label: "Company Overview", icon: "🏢" },
-  { label: "Leadership Team", icon: "👔" },
-  { label: "Founding Team", icon: "⭐" },
-  { label: "Our Journey", icon: "🗺️" },
-  { label: "Partnerships", icon: "🤝" },
-  { label: "Vision & Mission", icon: "🎯" },
-  { label: "Careers", icon: "💼" },
-  { label: "Global Presence", icon: "🌐" },
+  { label: "About Nextgenlytics", icon: "🏢" },
+  { label: "Our Team", icon: "👥" },
 ];
 
 const productsMenu = [
