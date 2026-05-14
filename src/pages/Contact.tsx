@@ -22,7 +22,6 @@ export default function Contact() {
     phone: "",
     message: "",
     preferredDate: "",
-    product: "BlueGecko Platform",
   });
 
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
@@ -36,7 +35,7 @@ export default function Contact() {
     const subject =
       mode === "consultation"
         ? `Book Consultation – ${form.name} (${form.company || "—"})`
-        : `Request Demo – ${form.product} – ${form.name}`;
+        : `Request Demo – ${form.name} (${form.company || "—"})`;
     const lines =
       mode === "consultation"
         ? [
@@ -54,7 +53,6 @@ export default function Contact() {
             `Email: ${form.email}`,
             `Company: ${form.company}`,
             `Phone: ${form.phone}`,
-            `Product of interest: ${form.product}`,
             ``,
             `Message:`,
             form.message,
@@ -184,28 +182,10 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {mode === "consultation" ? (
+                {mode === "consultation" && (
                   <div className="space-y-2">
                     <Label htmlFor="preferredDate">Preferred date</Label>
                     <Input id="preferredDate" type="date" value={form.preferredDate} onChange={(e) => update("preferredDate", e.target.value)} />
-                  </div>
-                ) : (
-                  <div className="space-y-2">
-                    <Label htmlFor="product">Product of interest</Label>
-                    <select
-                      id="product"
-                      value={form.product}
-                      onChange={(e) => update("product", e.target.value)}
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                    >
-                      <option>BlueGecko Platform</option>
-                      <option>Falcon Mapping</option>
-                      <option>Code Cheetah</option>
-                      <option>Owl Sight</option>
-                      <option>Orca Migrate</option>
-                      <option>AI Agents</option>
-                      <option>Business Metrics</option>
-                    </select>
                   </div>
                 )}
 
