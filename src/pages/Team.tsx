@@ -4,6 +4,12 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import hugoImg from "@/assets/hugo-cooijmans.jpg";
+import cofounderImg from "@/assets/team-cofounder.jpg";
+import deliveryImg from "@/assets/team-delivery.jpg";
+import microsoftImg from "@/assets/team-microsoft.jpg";
+import aiImg from "@/assets/team-ai.jpg";
+import cloudImg from "@/assets/team-cloud.jpg";
+import sapImg from "@/assets/team-sap.jpg";
 import { Linkedin, Mail, MapPin } from "lucide-react";
 
 const founder = {
@@ -25,36 +31,42 @@ const team = [
     role: "Co-Founder & Data / AI Lead",
     location: "Amsterdam, NL",
     bio: "Two decades architecting data platforms and AI systems at Tier-1 SIs. Drives the BlueGecko product vision and delivery model.",
+    image: cofounderImg,
   },
   {
     name: "Delivery Lead",
     role: "Head of Delivery — India",
     location: "Hyderabad, IN",
     bio: "Runs onshore-offshore engagement orchestration. Ensures European delivery standards across Hyderabad and Lucknow specialist teams.",
+    image: deliveryImg,
   },
   {
     name: "Microsoft Practice Lead",
     role: "D365 & Azure Lead",
     location: "Amsterdam, NL",
     bio: "Microsoft stack veteran across Dynamics 365, Power Platform, and Azure data services for enterprise transformations.",
+    image: microsoftImg,
   },
   {
     name: "AI Practice Lead",
     role: "Applied AI & Agents Lead",
     location: "Amsterdam, NL",
     bio: "Leads our AI Agents portfolio — operationalising LLM and agentic systems for measurable enterprise outcomes.",
+    image: aiImg,
   },
   {
     name: "Cloud Practice Lead",
     role: "Cloud & AMS Lead",
     location: "Hyderabad, IN",
     bio: "Hybrid cloud migration, modernisation, and 24/7 application managed services across SAP, Microsoft, and data platforms.",
+    image: cloudImg,
   },
   {
     name: "SAP Architecture Lead",
     role: "S/4HANA Architect",
     location: "Lucknow, IN",
     bio: "End-to-end S/4HANA architecture, brownfield conversion, and clean-core delivery for regulated industries.",
+    image: sapImg,
   },
 ];
 
@@ -76,7 +88,18 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
   return (
     <article className="group relative h-full bg-card rounded-2xl border border-border/60 shadow-md shadow-primary/5 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
       <div className="aspect-[4/3] overflow-hidden bg-muted">
-        <Initials name={m.name} />
+        {m.image ? (
+          <img
+            src={m.image}
+            alt={m.name}
+            loading="lazy"
+            width={768}
+            height={768}
+            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+          />
+        ) : (
+          <Initials name={m.name} />
+        )}
       </div>
       <div className="p-6">
         <h3 className="text-lg font-bold text-foreground font-heading">{m.name}</h3>
@@ -141,19 +164,17 @@ export default function Team() {
 
         {/* Founder spotlight */}
         <section className="container pb-16 md:pb-24" ref={founderRef}>
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
             <div
-              className={`relative ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
+              className={`relative h-full ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
             >
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 via-accent/10 to-transparent blur-2xl" aria-hidden />
-              <div className="relative rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={founder.image}
-                    alt={founder.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                  />
-                </div>
+              <div className="relative h-full min-h-[420px] rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent p-6">
                   <p className="text-primary-foreground/90 text-xs uppercase tracking-widest font-semibold">
                     Founder Spotlight
@@ -165,7 +186,7 @@ export default function Team() {
               </div>
             </div>
 
-            <div className={`${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
+            <div className={`flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
               <span className="text-xs font-semibold uppercase tracking-widest text-accent">
                 Co-Founder
               </span>
