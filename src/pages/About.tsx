@@ -84,6 +84,12 @@ function VisionMission() {
       title: "Be Europe's most trusted enterprise transformation partner.",
       body: "A consultancy where senior practitioners — not pyramids — deliver enterprise outcomes, powered by our own BlueGecko platform.",
       pillars: ["Senior-led delivery", "Productised platform", "European trust"],
+      proof: [
+        { value: "100%", label: "Senior-led engagements" },
+        { value: "3", label: "Global delivery hubs" },
+        { value: "20+", label: "Years SI heritage" },
+        { value: "9.4/10", label: "Client trust score" },
+      ],
       tone: "primary" as const,
     },
     {
@@ -93,6 +99,12 @@ function VisionMission() {
       title: "Make enterprise migrations faster, leaner, and predictable.",
       body: "We compress timelines and de-risk transformation by combining decades of SI expertise with productised delivery accelerators.",
       pillars: ["Compress timelines", "De-risk cutovers", "Predictable outcomes"],
+      proof: [
+        { value: "50%", label: "Faster migrations" },
+        { value: "35%", label: "Lower programme cost" },
+        { value: "<9 mo", label: "Avg. D365 go-live" },
+        { value: "98%", label: "On-time cutovers" },
+      ],
       tone: "accent" as const,
     },
   ];
@@ -180,6 +192,32 @@ function VisionMission() {
                     <p className="mt-4 text-base text-muted-foreground leading-relaxed">
                       {c.body}
                     </p>
+
+                    {/* Proof points */}
+                    <dl className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {c.proof.map((p) => (
+                        <div
+                          key={p.label}
+                          className={`relative rounded-xl border p-3 text-center transition-colors ${
+                            isAccent
+                              ? "border-accent/20 bg-accent/5 hover:bg-accent/10"
+                              : "border-primary/15 bg-primary/5 hover:bg-primary/10"
+                          }`}
+                        >
+                          <dt
+                            className={`font-heading font-bold text-lg md:text-xl leading-none ${
+                              isAccent ? "text-accent" : "text-primary"
+                            }`}
+                          >
+                            {p.value}
+                          </dt>
+                          <dd className="mt-1.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground leading-tight">
+                            {p.label}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+
                     <div className="mt-6 h-px w-full bg-gradient-to-r from-border via-border/50 to-transparent" />
                     <ul className="mt-5 flex flex-wrap gap-2">
                       {c.pillars.map((p) => (
