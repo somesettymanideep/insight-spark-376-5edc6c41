@@ -62,18 +62,27 @@ const productsMenu = [
   { label: "Business Metrics", icon: "📈" },
 ];
 
+const clientWorkMenu = [
+  { label: "Manufacturing SAP Transformation", Icon: Factory },
+  { label: "D365 AMS Engagement", Icon: Cog },
+  { label: "Invoice Automation", Icon: FileText },
+  { label: "AI Data Migration", Icon: Database },
+  { label: "Analytics Transformation", Icon: BarChart3 },
+  { label: "Managed Services Programs", Icon: LifeBuoy },
+];
+
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Solutions", href: "#solutions", hasMenu: "solutions" as const },
   { label: "Products", href: "#products", hasMenu: "products" as const },
   { label: "Industries", href: "#industries" },
-  { label: "Client Work", href: "#cases" },
+  { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
   { label: "Contact", href: "/contact" },
 ];
 
-type MenuKey = "solutions" | "insights" | "about" | "products" | null;
+type MenuKey = "solutions" | "insights" | "about" | "products" | "clientWork" | null;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
