@@ -101,19 +101,16 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
         ) : (
           <Initials name={m.name} />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/20 to-transparent opacity-90" />
         <span className="absolute top-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-background/90 backdrop-blur text-[10px] font-semibold uppercase tracking-wider text-primary border border-border/60 shadow-sm">
           <MapPin size={10} /> {m.location}
         </span>
-        <div className="absolute inset-x-4 bottom-3 text-primary-foreground">
-          <h3 className="text-lg font-bold font-heading drop-shadow-sm">{m.name}</h3>
-          <p className="text-xs font-medium text-primary-foreground/90">{m.role}</p>
-        </div>
       </div>
 
       {/* Body */}
       <div className="p-5 flex-1 flex flex-col">
-        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{m.bio}</p>
+        <h3 className="text-lg font-bold text-foreground font-heading">{m.name}</h3>
+        <p className="mt-0.5 text-sm font-semibold text-primary">{m.role}</p>
+        <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">{m.bio}</p>
 
         <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
 
@@ -194,7 +191,7 @@ export default function Team() {
         <section className="container pb-16 md:pb-24" ref={founderRef}>
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
             <div
-              className={`relative h-full lg:col-span-4 ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
+              className={`relative h-full lg:col-span-5 ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
             >
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 via-accent/10 to-transparent blur-2xl" aria-hidden />
               <div className="relative h-full min-h-[420px] rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
@@ -214,7 +211,7 @@ export default function Team() {
               </div>
             </div>
 
-            <div className={`lg:col-span-8 flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
+            <div className={`lg:col-span-7 flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
               <span className="text-xs font-semibold uppercase tracking-widest text-accent">
                 Co-Founder
               </span>
