@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import PageBanner from "@/components/PageBanner";
+import aboutBanner from "@/assets/banner-about.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import {
   Building2,
@@ -345,27 +347,13 @@ export default function About() {
     <div className="min-h-screen bg-background">
       <ScrollToTop />
       <Navbar />
-      <main className="pt-24 md:pt-28">
-        {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5"
-            aria-hidden
-          />
-          <div className="container relative py-16 md:py-24 text-center max-w-3xl mx-auto animate-reveal-up">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest">
-              About Nextgenlytics
-            </span>
-            <h1 className="mt-5 text-4xl md:text-6xl font-bold text-foreground font-heading text-balance leading-tight">
-              Built by the people who ran these programmes.
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
-              Amsterdam-founded, globally delivered. We combine Tier-1 SI experience with
-              our own BlueGecko platform to make enterprise migrations faster, leaner, and
-              predictable.
-            </p>
-          </div>
-        </section>
+      <main>
+        <PageBanner
+          image={aboutBanner}
+          eyebrow="About Nextgenlytics"
+          title="Built by the people who ran these programmes."
+          description="Amsterdam-founded, globally delivered. We combine Tier-1 SI experience with our own BlueGecko platform to make enterprise migrations faster, leaner, and predictable."
+        />
 
         <CompanyOverview />
         <VisionMission />

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Mail, MapPin, ArrowLeft, CalendarCheck, MonitorPlay } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageBanner from "@/components/PageBanner";
+import contactBanner from "@/assets/banner-contact.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -65,8 +67,14 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
-      <main className="flex-1 pt-28 md:pt-32 pb-20">
-        <div className="container max-w-6xl">
+      <main className="flex-1 pb-20">
+        <PageBanner
+          image={contactBanner}
+          eyebrow="Get in touch"
+          title="Let's talk about your next move."
+          description="Whether you need a strategic consultation or want to see our products in action, we're here to help. Pick the option that fits, and our team will respond within one business day."
+        />
+        <div className="container max-w-6xl mt-12">
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to home
           </Link>
@@ -75,16 +83,11 @@ export default function Contact() {
             {/* Left: info */}
             <aside className="space-y-8">
               <div>
-                <span className="inline-block text-xs font-semibold tracking-widest uppercase text-accent">
-                  Get in touch
-                </span>
-                <h1 className="mt-3 text-4xl md:text-5xl font-bold text-foreground leading-tight text-balance">
-                  Let's talk about your next move.
-                </h1>
-                <p className="mt-4 text-muted-foreground leading-relaxed">
-                  Whether you need a strategic consultation or want to see our products in action,
-                  we're here to help. Pick the option that fits, and our team will respond within
-                  one business day.
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground font-heading">
+                  Reach the team directly
+                </h2>
+                <p className="mt-3 text-muted-foreground leading-relaxed">
+                  Prefer email or a call? Use the details below — we typically respond within one business day.
                 </p>
               </div>
 
