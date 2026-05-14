@@ -227,11 +227,11 @@ export default function Navbar() {
 
                 {openMenuKey === "about" && l.hasMenu === "about" && (
                   <div
-                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(720px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
+                    className="fixed left-1/2 -translate-x-1/2 top-16 md:top-20 w-[min(360px,95vw)] bg-card border border-border rounded-2xl shadow-2xl p-5 animate-fade-in"
                     onMouseEnter={() => openMenu("about")}
                     onMouseLeave={scheduleClose}
                   >
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 gap-2">
                       {aboutMenu.map((i) => (
                         <a
                           key={i.label}
