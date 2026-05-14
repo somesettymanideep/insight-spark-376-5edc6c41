@@ -46,9 +46,9 @@ const insightsMenu = [
   { label: "Research", icon: "🔬" },
 ];
 
-const aboutMenu = [
-  { label: "About Nextgenlytics", icon: "🏢" },
-  { label: "Our Team", icon: "👥" },
+const aboutMenu: { label: string; icon: string; href: string }[] = [
+  { label: "About Nextgenlytics", icon: "🏢", href: "/about" },
+  { label: "Our Team", icon: "👥", href: "/team" },
 ];
 
 const productsMenu = [
@@ -211,7 +211,7 @@ export default function Navbar() {
                       {aboutMenu.map((i) => (
                         <a
                           key={i.label}
-                          href="#about"
+                          href={i.href}
                           onClick={closeNow}
                           className="flex items-center gap-3 rounded-xl border border-border/60 p-3 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 bg-background group"
                         >
@@ -351,7 +351,7 @@ export default function Navbar() {
                         {aboutMenu.map((i) => (
                           <li key={i.label}>
                             <a
-                              href="#about"
+                              href={i.href}
                               onClick={() => {
                                 setOpen(false);
                                 setMobileMenuKey(null);
