@@ -88,7 +88,18 @@ function TeamCard({ m }: { m: (typeof team)[number] }) {
   return (
     <article className="group relative h-full bg-card rounded-2xl border border-border/60 shadow-md shadow-primary/5 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30">
       <div className="aspect-[4/3] overflow-hidden bg-muted">
-        <Initials name={m.name} />
+        {m.image ? (
+          <img
+            src={m.image}
+            alt={m.name}
+            loading="lazy"
+            width={768}
+            height={768}
+            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]"
+          />
+        ) : (
+          <Initials name={m.name} />
+        )}
       </div>
       <div className="p-6">
         <h3 className="text-lg font-bold text-foreground font-heading">{m.name}</h3>
