@@ -213,67 +213,109 @@ export default function Team() {
           description="35+ practitioners across Amsterdam, Hyderabad, and Lucknow — combining Tier-1 SI experience with deep product engineering on BlueGecko."
         />
 
-        {/* Founder spotlight */}
+        {/* Founders — Trio spotlight */}
         <section className="container pb-16 md:pb-24" ref={founderRef}>
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
-            <div
-              className={`relative h-full lg:col-span-5 ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}
-            >
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 via-accent/10 to-transparent blur-2xl" aria-hidden />
-              <div className="relative h-full min-h-[420px] rounded-3xl overflow-hidden border border-border/60 shadow-2xl shadow-primary/10 group">
-                <img
-                  src={founder.image}
-                  alt={founder.name}
-                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent p-6">
-                  <p className="text-primary-foreground/90 text-xs uppercase tracking-widest font-semibold">
-                    Founder Spotlight
-                  </p>
-                  <p className="text-primary-foreground font-heading text-2xl font-bold mt-1">
-                    {founder.name}
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className={`max-w-2xl mb-12 md:mb-16 ${founderVisible ? "animate-reveal-up" : "opacity-0"}`}>
+            <span className="text-xs font-semibold uppercase tracking-widest text-accent">
+              Founding Partners
+            </span>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
+              Three operators. One conviction.
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed text-pretty">
+              Nextgenlytics was built by three partners who spent careers running the kind of programmes our clients now hand to us — combining SAP heritage, AI engineering, and global delivery into a single accountable team.
+            </p>
+          </div>
 
-            <div className={`lg:col-span-7 flex flex-col justify-center ${founderVisible ? "animate-reveal-up delay-200" : "opacity-0"}`}>
-              <span className="text-xs font-semibold uppercase tracking-widest text-accent">
-                Co-Founder
-              </span>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground font-heading text-balance">
-                {founder.name}
-              </h2>
-              <p className="mt-2 text-base font-semibold text-primary">{founder.role}</p>
-              <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground inline-flex items-center gap-1">
-                <MapPin size={12} /> {founder.location}
-              </p>
-              <p className="mt-5 text-lg text-muted-foreground leading-relaxed text-pretty">
-                {founder.bio}
-              </p>
-              <ul className="mt-6 space-y-2">
-                {founder.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-3 text-sm text-foreground/80">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-accent shrink-0" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-7 flex items-center gap-3">
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/70 text-sm font-medium text-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-colors"
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {founders.map((f, i) => {
+              const num = String(i + 1).padStart(2, "0");
+              const offset = i === 1 ? "md:translate-y-8" : "";
+              return (
+                <article
+                  key={f.name}
+                  className={`group relative flex flex-col rounded-3xl border border-border/60 bg-card shadow-lg shadow-primary/5 overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-primary/15 hover:border-primary/40 ${offset} ${
+                    founderVisible ? "animate-reveal-up" : "opacity-0"
+                  }`}
+                  style={{ animationDelay: `${i * 140}ms` }}
                 >
-                  <Linkedin size={16} /> LinkedIn
-                </a>
-                <a
-                  href="mailto:Info@nextgenlytics.com"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
-                >
-                  <Mail size={16} /> Get in touch
-                </a>
-              </div>
-            </div>
+                  {/* Portrait */}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+                    <img
+                      src={f.image}
+                      alt={f.name}
+                      loading="lazy"
+                      width={768}
+                      height={896}
+                      className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+                    />
+                    {/* Number badge */}
+                    <div className="absolute top-4 left-4 flex items-center gap-2">
+                      <span className="font-heading text-3xl font-bold text-primary-foreground drop-shadow-lg">
+                        {num}
+                      </span>
+                      <span className="h-px w-8 bg-primary-foreground/80" />
+                    </div>
+                    {/* Location chip */}
+                    <span className="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-background/90 backdrop-blur text-[10px] font-semibold uppercase tracking-wider text-primary border border-border/60 shadow-sm">
+                      <MapPin size={10} /> {f.location}
+                    </span>
+                    {/* Bottom gradient with name */}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent p-5">
+                      <p className="text-primary-foreground/80 text-[10px] uppercase tracking-widest font-semibold">
+                        {f.focus}
+                      </p>
+                      <p className="text-primary-foreground font-heading text-xl font-bold mt-0.5">
+                        {f.name}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Body */}
+                  <div className="p-6 flex-1 flex flex-col">
+                    <p className="text-sm font-semibold text-primary">{f.role}</p>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.bio}</p>
+
+                    <ul className="mt-5 space-y-2">
+                      {f.highlights.map((h) => (
+                        <li key={h} className="flex items-start gap-2.5 text-xs text-foreground/80">
+                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-6 pt-5 border-t border-border/60 flex items-center justify-between">
+                      <a
+                        href="mailto:Info@nextgenlytics.com"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-accent transition-colors group/cta"
+                      >
+                        Get in touch
+                        <span className="transition-transform group-hover/cta:translate-x-0.5">→</span>
+                      </a>
+                      <div className="flex items-center gap-1.5">
+                        <a
+                          href="#"
+                          aria-label={`${f.name} on LinkedIn`}
+                          className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-primary hover:text-primary-foreground transition-all hover:scale-110"
+                        >
+                          <Linkedin size={14} />
+                        </a>
+                        <a
+                          href="mailto:Info@nextgenlytics.com"
+                          aria-label={`Email ${f.name}`}
+                          className="p-2 rounded-full bg-muted/60 text-foreground/70 hover:bg-accent hover:text-accent-foreground transition-all hover:scale-110"
+                        >
+                          <Mail size={14} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <span className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary via-accent to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                </article>
+              );
+            })}
           </div>
         </section>
 
