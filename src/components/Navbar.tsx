@@ -89,6 +89,7 @@ const navLinks = [
   { label: "Client Work", href: "#cases", hasMenu: "clientWork" as const },
   { label: "Insights", href: "#insights", hasMenu: "insights" as const },
   { label: "About", href: "#about", hasMenu: "about" as const },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
