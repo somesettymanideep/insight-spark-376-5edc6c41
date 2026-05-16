@@ -16,18 +16,47 @@ import cloudImg from "@/assets/team-cloud.jpg";
 import sapImg from "@/assets/team-sap.jpg";
 import { Linkedin, Mail, MapPin } from "lucide-react";
 
-const founder = {
-  name: "Hugo Cooijmans",
-  role: "Co-Founder & SAP Lead",
-  location: "Amsterdam, NL",
-  bio: "Founding figure of the Dutch SAP SI ecosystem. Decades of SAP programme leadership across major NL enterprises — the credibility that opens doors and the operator instinct that closes deals.",
-  image: hugoImg,
-  highlights: [
-    "30+ yrs SAP programme leadership",
-    "Dutch SAP SI ecosystem pioneer",
-    "Tier-1 enterprise references",
-  ],
-};
+const founders = [
+  {
+    name: "Hugo Cooijmans",
+    role: "Co-Founder & SAP Lead",
+    location: "Amsterdam, NL",
+    focus: "SAP S/4HANA · Programme Leadership",
+    bio: "Founding figure of the Dutch SAP SI ecosystem. Decades of SAP programme leadership across major NL enterprises — the credibility that opens doors and the operator instinct that closes deals.",
+    image: hugoImg,
+    highlights: [
+      "30+ yrs SAP programme leadership",
+      "Dutch SAP SI ecosystem pioneer",
+      "Tier-1 enterprise references",
+    ],
+  },
+  {
+    name: "Rajiv Menon",
+    role: "Co-Founder & Data / AI Lead",
+    location: "Amsterdam, NL",
+    focus: "Data Platforms · Applied AI · BlueGecko",
+    bio: "Two decades architecting enterprise data platforms and AI systems at Tier-1 SIs. Drives the BlueGecko product vision and the agentic delivery model behind every Nextgenlytics migration.",
+    image: dataAiFounderImg,
+    highlights: [
+      "20+ yrs data & AI architecture",
+      "BlueGecko product architect",
+      "Lakehouse & agentic AI delivery",
+    ],
+  },
+  {
+    name: "Arjun Krishnan",
+    role: "Co-Founder & Delivery Lead",
+    location: "Hyderabad, IN",
+    focus: "Global Delivery · Onshore-Offshore",
+    bio: "Runs Nextgenlytics' onshore-offshore engagement engine across Hyderabad and Lucknow. Ensures European delivery standards at 30–40% below Tier-1 Dutch SI rates — without compromising senior-led governance.",
+    image: deliveryFounderImg,
+    highlights: [
+      "35+ specialists across IN hubs",
+      "European-grade governance offshore",
+      "100% senior-led engagements",
+    ],
+  },
+];
 
 const team = [
   {
